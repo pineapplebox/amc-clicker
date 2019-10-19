@@ -1,1 +1,235 @@
-<!doctypehtml><html lang=en><title>AMC Clicker</title><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><body style=background-color:#b0e0e6> <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel=stylesheet> <style>body{background-color: black; font-family: "Comic Sans MS", "Comic Sans", cursive; font-size: 20px}.button{background-color: #4CAF50; border: none; color: white; padding: 8px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; -webkit-transition-duration: 0.4s; /* Safari */ transition-duration: 0.4s; cursor: pointer;}.button2{background-color: white; color: black; border: 2px solid #4c4c4c;}.button2:hover{background-color: #4c4c4c; color: white;}p{color: #fff; font-family: "Comic Sans MS", "Comic Sans", cursive; font-size: 20px}.shop{background-color: #325184; border-style: solid; border-width: 5px; border-color: #918064; width: 46.5vw; height: 94vh; float: left; margin: 8px;}.item{background-color: #325184; border-style: solid; border-width: 3px; border-color: #918064; width: 100%; display: table}#image{position: absolute}#overlay{position: fixed; display: none; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 1); z-index: 999999999; cursor: pointer}#start{width: 150px; height: 55px; background-color: #325184; border: none; font-family: "Comic Sans MS", "Comic Sans", cursive; font-size: 24px; display: none}.container{padding:5px 30px 30px 30px; margin:30px; border:solid white 1px; border-radius:5px; text-align:center;}</style> <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.7/typeit.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <script src="https://js.cx/libs/animate.js"></script> <img id="image" height="48" width="48" src="https://art.pixilart.com/44cc60643b38a6a.png"/> <div id="overlay"> <center> <br/> <br/> <br/> <br/> <br/> <p id='title' style="font-size: 30px;"></p><br/> <button id="start" onclick="off()">S T A R T</button> </center> </div><div class="shop"> <center> <h1>AMC Clicker [Demo]</h1> <img id=click src="https://crafatar.com/avatars/a3fae772537c43498c708751ea07e225"> <hr> <p>Fags Fucked: <span id=total_clicks>0</span> <br>Fags Fucked Per <small id=time_period>1.00</small> second(s): <span id=clicks_per_second>0</span> </center> </div><div class="shop"> <center> <h1>Store</h1> <table class=table> <tr> <td>Homosexuality <td><span id=autoclicker_level>lvl 0</span> <td> <button class="button button2" id=buy_click type=button>Buy for 1</button> <tr> <td>Autism <td><span id=speed_level>lvl 0</span> <td> <button class="button button2" id=upgrade_speed type=button>Buy for 100</button> <tr> <td> <td> <td> <button class="button button2" id=increase_clicks type=button>Buy for 100</button> </table> </center> </div><script>function on(){document.getElementById("overlay").style.display="block"}function offs(){document.getElementById("overlay").style.display="none"}function off(){setTimeout(offs, 500)}on(); var ti=new TypeIt("#title",{speed: 65, autoStart: !0}); window.onload=function(){ti.type("AMC Clicker"), ti.break(), ti.type("By Imperial studios"), ti.break(), ti.type("In coordination with the Anti Normie Alliance"), setTimeout(function(){$("#start").fadeIn("slow")}, 6e3)}</script> <script>var interval_auto, clicks=0, auto_clicks=0, cost=1, upgrade_speed=0, click_rate=1e3, click_increment=1, loop=1; function update_total_clicks(){document.getElementById("total_clicks").innerHTML=clicks}function buy_something(e, t){return clicks < e ? (t.className="button button2", setTimeout(function(){document.getElementsByClassName("button2")[0].className="button button2"}, 1e3), !1) : (clicks -=e, !0)}function update_workers(){document.getElementById("time_period").innerHTML=parseFloat(click_rate / 1e3).toFixed(2), clearInterval(interval_auto), interval_auto=setInterval(function(){clicks +=auto_clicks, update_total_clicks()}, click_rate)}function set_cookie(e, t){expiry=new Date, expiry.setTime((new Date).getTime() + 6e5); var c=escape(btoa(JSON.stringify(t))) + "; expires=" + expiry.toUTCString(); document.cookie=e + "=" + c}function get_cookie(e){var t=document.cookie, c=t.indexOf(" " + e + "="); if (-1==c && (c=t.indexOf(e + "=")), -1==c) return !1; c=t.indexOf("=", c) + 1; var n=t.indexOf(";", c); return -1==n && (n=t.length), t=atob(unescape(t.substring(c, n))), JSON.parse(t)}document.getElementById("click").onclick=function(){clicks=parseFloat(clicks) + parseFloat(click_increment), update_total_clicks()}, document.getElementById("buy_click").onclick=function(){buy_something(cost, this) && (auto_clicks++, cost=Math.pow(2, auto_clicks), update_total_clicks(), document.getElementById("clicks_per_second").innerHTML=auto_clicks, document.getElementById("buy_click").innerHTML="Buy for " + cost, document.getElementById("autoclicker_level").innerHTML="lvl " + auto_clicks)}, document.getElementById("upgrade_speed").onclick=function(){buy_something(100 * Math.pow(3, upgrade_speed), this) && (upgrade_speed++, click_rate *=.9, update_workers(), document.getElementById("upgrade_speed").innerHTML="Buy for " + 100 * Math.pow(3, upgrade_speed), document.getElementById("speed_level").innerHTML="lvl " + upgrade_speed)}, document.getElementById("increase_clicks").onclick=function(){buy_something(1 * Math.pow(3, click_increment), this) && (click_increment++, update_workers(), document.getElementById("click_increment").innerHTML="Buy for " + 100 * Math.pow(3, click_increment))}, update_workers() </script> <script>function del3(){var e=document.getElementById("increase_clicks"); "none"===e.style.display ? e.style.display="block" : e.style.display="none"}del3() </script> <script>$(document).mousemove(function(e){$("#image").css({left: e.pageX + 2, top: e.pageY + 2}), $("#image").show()}) </script>
+<!doctypehtml>
+<html lang=en>
+<title>AMC Clicker</title>
+<meta charset=utf-8>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+
+<body style=background-color:#b0e0e6>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel=stylesheet>
+    <style>
+        body {
+            background-color: black;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-size: 20px
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        
+        .button2 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4c4c4c;
+        }
+        
+        .button2:hover {
+            background-color: #4c4c4c;
+            color: white;
+        }
+        
+        p {
+            color: #fff;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-size: 20px
+        }
+        
+        .shop {
+            background-color: #325184;
+            border-style: solid;
+            border-width: 5px;
+            border-color: #918064;
+            width: 46.5vw;
+            height: 94vh;
+            float: left;
+            margin: 8px;
+        }
+        
+        .item {
+            background-color: #325184;
+            border-style: solid;
+            border-width: 3px;
+            border-color: #918064;
+            width: 100%;
+            display: table
+        }
+        
+        #image {
+            position: absolute
+        }
+        
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 1);
+            z-index: 999999999;
+            cursor: pointer
+        }
+        
+        #start {
+            width: 150px;
+            height: 55px;
+            background-color: #325184;
+            border: none;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-size: 24px;
+            display: none
+        }
+        
+        .container {
+            padding: 5px 30px 30px 30px;
+            margin: 30px;
+            border: solid white 1px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.10.7/typeit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://js.cx/libs/animate.js"></script> <img id="image" height="48" width="48" src="https://art.pixilart.com/44cc60643b38a6a.png" />
+    <div id="overlay">
+        <center>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <p id='title' style="font-size: 30px;"></p>
+            <br/>
+            <button id="start" onclick="off()">S T A R T</button>
+        </center>
+    </div>
+    <div class="shop">
+        <center>
+            <h1>AMC Clicker [Demo]</h1> <img id=click src="https://crafatar.com/avatars/a3fae772537c43498c708751ea07e225">
+            <hr>
+            <p>Fags Fucked: <span id=total_clicks>0</span>
+                <br>Fags Fucked Per <small id=time_period>1.00</small> second(s): <span id=clicks_per_second>0</span> </center>
+    </div>
+    <div class="shop">
+        <center>
+            <h1>Store</h1>
+            <table class=table>
+                <tr>
+                    <td style="float: left;">Homosexuality
+                        <td><span style="float: left;" id=autoclicker_level>lvl 0</span>
+                            <td>
+                                <button style="float: right;" class="button button2" id=buy_click type=button>Buy for 1</button>
+                                <tr>
+                                    <td style="float: left;">Autism
+                                        <td><span style="float: left;" id=speed_level>lvl 0</span>
+                                            <td>
+                                                <button style="float: right;" class="button button2" id=upgrade_speed type=button>Buy for 100</button>
+                                                <tr>
+                                                    <td>
+                                                        <td>
+                                                            <td>
+                                                                <button class="button button2" id=increase_clicks type=button>Buy for 100</button>
+            </table>
+        </center>
+    </div>
+    <script>
+        function on() {
+            document.getElementById("overlay").style.display = "block"
+        }
+
+        function offs() {
+            document.getElementById("overlay").style.display = "none"
+        }
+
+        function off() {
+            setTimeout(offs, 500)
+        }
+        on();
+        var ti = new TypeIt("#title", {
+            speed: 65,
+            autoStart: !0
+        });
+        window.onload = function() {
+            ti.type("AMC Clicker"), ti.break(), ti.type("By Imperial studios"), ti.break(), ti.type("In coordination with the Anti Normie Alliance"), setTimeout(function() {
+                $("#start").fadeIn("slow")
+            }, 6e3)
+        }
+    </script>
+    <script>
+        var interval_auto, clicks = 0,
+            auto_clicks = 0,
+            cost = 1,
+            upgrade_speed = 0,
+            click_rate = 1e3,
+            click_increment = 1,
+            loop = 1;
+
+        function update_total_clicks() {
+            document.getElementById("total_clicks").innerHTML = clicks
+        }
+
+        function buy_something(e, t) {
+            return clicks < e ? (t.className = "button button2", setTimeout(function() {
+                document.getElementsByClassName("button2")[0].className = "button button2"
+            }, 1e3), !1) : (clicks -= e, !0)
+        }
+
+        function update_workers() {
+            document.getElementById("time_period").innerHTML = parseFloat(click_rate / 1e3).toFixed(2), clearInterval(interval_auto), interval_auto = setInterval(function() {
+                clicks += auto_clicks, update_total_clicks()
+            }, click_rate)
+        }
+
+        function set_cookie(e, t) {
+            expiry = new Date, expiry.setTime((new Date).getTime() + 6e5);
+            var c = escape(btoa(JSON.stringify(t))) + "; expires=" + expiry.toUTCString();
+            document.cookie = e + "=" + c
+        }
+
+        function get_cookie(e) {
+            var t = document.cookie,
+                c = t.indexOf(" " + e + "=");
+            if (-1 == c && (c = t.indexOf(e + "=")), -1 == c) return !1;
+            c = t.indexOf("=", c) + 1;
+            var n = t.indexOf(";", c);
+            return -1 == n && (n = t.length), t = atob(unescape(t.substring(c, n))), JSON.parse(t)
+        }
+        document.getElementById("click").onclick = function() {
+            clicks = parseFloat(clicks) + parseFloat(click_increment), update_total_clicks()
+        }, document.getElementById("buy_click").onclick = function() {
+            buy_something(cost, this) && (auto_clicks++, cost = Math.pow(2, auto_clicks), update_total_clicks(), document.getElementById("clicks_per_second").innerHTML = auto_clicks, document.getElementById("buy_click").innerHTML = "Buy for " + cost, document.getElementById("autoclicker_level").innerHTML = "lvl " + auto_clicks)
+        }, document.getElementById("upgrade_speed").onclick = function() {
+            buy_something(100 * Math.pow(3, upgrade_speed), this) && (upgrade_speed++, click_rate *= .9, update_workers(), document.getElementById("upgrade_speed").innerHTML = "Buy for " + 100 * Math.pow(3, upgrade_speed), document.getElementById("speed_level").innerHTML = "lvl " + upgrade_speed)
+        }, document.getElementById("increase_clicks").onclick = function() {
+            buy_something(1 * Math.pow(3, click_increment), this) && (click_increment++, update_workers(), document.getElementById("click_increment").innerHTML = "Buy for " + 100 * Math.pow(3, click_increment))
+        }, update_workers()
+    </script>
+    <script>
+        function del3() {
+            var e = document.getElementById("increase_clicks");
+            "none" === e.style.display ? e.style.display = "block" : e.style.display = "none"
+        }
+        del3()
+    </script>
+    <script>
+        $(document).mousemove(function(e) {
+            $("#image").css({
+                left: e.pageX + 2,
+                top: e.pageY + 2
+            }), $("#image").show()
+        })
+    </script>
